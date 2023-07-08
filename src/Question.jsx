@@ -8,6 +8,15 @@ const Question = (props) => {
 
   const [response, setResponse] = useState(null);
 
+  const getStyle = (index) => {
+    if (isSubmitted) {
+      if (index === answer) return { backgroundColor: "lightgreen" };
+      if (index.toString() === response)
+        return { backgroundColor: "lightpink" };
+    }
+    return {};
+  };
+
   return (
     <div className="formbold-mb-5">
       <label htmlFor="qusOne" className="formbold-form-label">
@@ -15,7 +24,11 @@ const Question = (props) => {
       </label>
       <div className="formbold-radio-flex">
         {options.map((label, index) => (
-          <div key={index} className="formbold-radio-group">
+          <div
+            key={index}
+            className="formbold-radio-group"
+            style={getStyle(index)}
+          >
             <label className="formbold-radio-label">
               <input
                 className="formbold-input-radio"

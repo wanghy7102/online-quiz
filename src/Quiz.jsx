@@ -1,9 +1,17 @@
+import { useState } from "react";
 import { QuizData } from "./QuizData";
 import Question from "./Question";
 
 const Quiz = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="formbold-form-title">
         <h2 style={{ marginBottom: "1.5rem" }}>Online Quiz</h2>
       </div>
@@ -14,7 +22,7 @@ const Quiz = () => {
           label={question.label}
           options={question.options}
           answer={question.answer}
-          isSubmitted={question.isSubmitted}
+          isSubmitted={isSubmitted}
         />
       ))}
 
