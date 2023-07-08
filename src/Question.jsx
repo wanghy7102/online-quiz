@@ -35,7 +35,9 @@ const Question = (props) => {
                 type="radio"
                 value={index}
                 checked={index.toString() === response}
-                onChange={(e) => setResponse(e.target.value)}
+                onChange={(e) => {
+                  if (!isSubmitted) setResponse(e.target.value);
+                }}
               />
               {label}
               <span className="formbold-radio-checkmark"></span>
