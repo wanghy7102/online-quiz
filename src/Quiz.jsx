@@ -8,6 +8,7 @@ const Quiz = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
+    window.scrollTo(0, 0);
   };
 
   return (
