@@ -8,11 +8,10 @@ const Question = (props) => {
 
   const [response, setResponse] = useState(null);
 
-  const getStyle = (index) => {
+  const getStyle = (value) => {
     if (isSubmitted) {
-      if (index === answer) return { backgroundColor: "lightgreen" };
-      if (index.toString() === response)
-        return { backgroundColor: "lightpink" };
+      if (value === answer) return { backgroundColor: "lightgreen" };
+      if (value === response) return { backgroundColor: "lightpink" };
     }
     return {};
   };
@@ -23,23 +22,23 @@ const Question = (props) => {
         {label}
       </label>
       <div className="formbold-radio-flex">
-        {options.map((label, index) => (
+        {options.map((option, index) => (
           <div
             key={index}
             className="formbold-radio-group"
-            style={getStyle(index)}
+            style={getStyle(option.value)}
           >
             <label className="formbold-radio-label">
               <input
                 className="formbold-input-radio"
                 type="radio"
-                value={index}
-                checked={index.toString() === response}
+                value={option.value}
+                checked={option.value === response}
                 onChange={(e) => {
                   if (!isSubmitted) setResponse(e.target.value);
                 }}
               />
-              {String.fromCharCode("a".charCodeAt(0) + index)}. {label}
+              {String.fromCharCode("a".charCodeAt(0) + index)}. {option.label}
               <span className="formbold-radio-checkmark"></span>
             </label>
           </div>
