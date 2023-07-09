@@ -19,7 +19,7 @@ const Quiz = () => {
       {QuizData.questions.map((question, index) => (
         <Question
           key={index}
-          label={question.label}
+          label={`${index + 1}. ${question.label}`}
           options={question.options}
           answer={question.answer}
           isSubmitted={isSubmitted}

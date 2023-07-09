@@ -39,7 +39,7 @@ const Question = (props) => {
                   if (!isSubmitted) setResponse(e.target.value);
                 }}
               />
-              {label}
+              {String.fromCharCode("a".charCodeAt(0) + index)}. {label}
               <span className="formbold-radio-checkmark"></span>
             </label>
           </div>
